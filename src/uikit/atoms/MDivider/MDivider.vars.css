@@ -1,0 +1,7 @@
+:root[data-theme="light"] {
+	--divider-color: var(--background-secondary);
+}
+
+:root[data-theme="dark"] {
+	--divider-color: var(--background-secondary);
+}
