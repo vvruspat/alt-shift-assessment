@@ -55,9 +55,6 @@
 }
 
 .counter {
-	position: absolute;
-	right: var(--input-field-whiteSpace-field-padding-horizontal, 16px);
-	bottom: var(--input-field-whiteSpace-field-padding-vertical, 12px);
 	text-align: right;
 	font-family: var(--font-family-secondary);
 	font-size: var(--textarea-counter-font-size, 12px);
@@ -65,6 +62,17 @@
 	font-weight: 400;
 	line-height: normal;
 	transition: color 0.2s ease-in-out;
+}
+
+.counter.inside {
+	position: absolute;
+	right: var(--input-field-whiteSpace-field-padding-horizontal, 16px);
+	bottom: var(--input-field-whiteSpace-field-padding-vertical, 12px);
+}
+
+.counter.outside {
+	text-align: left;
+	position: relative;
 }
 
 /** STATES */

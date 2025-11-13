@@ -33,6 +33,7 @@ type TextareaProps = ComponentProps<"textarea"> &
 		headerClassName?: string;
 		textareaClassName?: string;
 		descriptionClassName?: string;
+		counterPosition?: "inside" | "outside";
 	};
 
 export const MTextarea = ({
@@ -48,6 +49,7 @@ export const MTextarea = ({
 	textareaClassName,
 	descriptionClassName,
 	maxLength = 200,
+	counterPosition = "inside",
 	value,
 	id,
 	rows = 3,
@@ -106,12 +108,23 @@ export const MTextarea = ({
 				>
 					{value}
 				</textarea>
-				{counter && (
-					<span ref={charCounter} className={clsx(styles.counter)}>
+				{counter && counterPosition === "inside" && (
+					<span
+						ref={charCounter}
+						className={clsx(styles.counter, styles.inside)}
+					>
 						{count}/{maxLength}
 					</span>
 				)}
 			</MFlex>
+			{counter && counterPosition === "outside" && (
+				<span
+					ref={charCounter}
+					className={clsx(styles.counter, styles.outside)}
+				>
+					{count}/{maxLength}
+				</span>
+			)}
 			{description && (
 				<div className={clsx(descriptionClassName)}>
 					<MFieldDescription status={status}>{description}</MFieldDescription>

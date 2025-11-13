@@ -13,6 +13,27 @@
 	border-radius: var(--step-progress-border-radius);
 }
 
+.step-progress-item--bullets {
+	border-radius: 50%;
+	aspect-ratio: 1 / 1;
+	padding: 0;
+}
+
+.step-progress-item--bullets-size-s {
+	width: var(--size-general-1x);
+	height: var(--size-general-1x);
+}
+
+.step-progress-item--bullets-size-m {
+	width: var(--size-general-1_5x);
+	height: var(--size-general-1_5x);
+}
+
+.step-progress-item--bullets-size-l {
+	width: var(--size-general-2x);
+	height: var(--size-general-2x);
+}
+
 .step-progress-mode-pending {
 	border-color: var(--step-progress-border-color);
 	background-color: var(--step-progress-background-color);
@@ -62,4 +83,31 @@
 
 .step-progress-label-mode-success {
 	color: var(--step-progress-label-color-success);
+}
+
+.step-progress-mode-primary {
+	border-color: var(--step-progress-border-color-primary);
+	background-color: var(--step-progress-background-color-primary);
+	color: var(--step-progress-color-primary);
+}
+.step-progress-label-mode-primary {
+	color: var(--step-progress-label-color-primary);
+}
+
+.step-progress-mode-secondary {
+	border-color: var(--step-progress-border-color-secondary);
+	background-color: var(--step-progress-background-color-secondary);
+	color: var(--step-progress-color-secondary);
+}
+.step-progress-label-mode-secondary {
+	color: var(--step-progress-label-color-secondary);
+}
+
+.step-progress-mode-tertiary {
+	border-color: var(--step-progress-border-color-tertiary);
+	background-color: var(--step-progress-background-color-tertiary);
+	color: var(--step-progress-color-tertiary);
+}
+.step-progress-label-mode-tertiary {
+	color: var(--step-progress-label-color-tertiary);
 }

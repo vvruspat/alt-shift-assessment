@@ -1,7 +1,5 @@
 :root[data-brand="alt-shift"] {
 	/* typo */
-	--font-family: "Roboto", sans-serif;
-	--font-family-secondary: "Roboto", sans-serif;
 	--font-size-xs: 0.625rem;
 	--font-size-s: 0.75rem;
 	--font-size-m: 0.875rem;

@@ -17,7 +17,7 @@
 .defaultOverlayColor {
 	background: linear-gradient(
 		transparent,
-		var(--expandable-text-overlay-background, #fff)
+		var(--expandable-text-overlay-background)
 	);
 }
 
@@ -26,5 +26,5 @@
 }
 
 .defaultButton {
-	color: var(--expandable-text-default-button-color, #747e97);
+	color: var(--expandable-text-default-button-color);
 }

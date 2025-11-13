@@ -74,8 +74,6 @@ export const MDropdown = ({
 	}, [open, handleClickOutside, platform]);
 
 	return (
-		// biome-ignore lint/a11y/useKeyWithClickEvents: TODO: add keyboard support
-		// biome-ignore lint/a11y/useSemanticElements: no way to use semantic elements here
 		<div
 			className={clsx(styles.dropdownContainer, className)}
 			{...props}

@@ -1,66 +1,42 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import { ApplicationBanner } from "@/components/ApplicationBanner";
+import { ApplicationCard } from "@/components/ApplicationCard";
+import { ApplicationsList } from "@/components/ApplicationsList";
+import { PlusIcon } from "@/components/icons/PlusIcon";
+import { Page } from "@/components/Page";
+import { Application } from "@/types/application";
+import { MHeading, MLinkButton } from "@/uikit";
 
-export default function Home() {
+const applications: Application[] = [
+	{
+		id: 1,
+		text: `Dear Stripe team,
+I am a highly skilled product designer with a passion for creating intuitive, user-centered designs. I have a strong background in design systems and am excited about the opportunity to join the Stripe product design team and work on building out the design system for the platform.
+I am particularly drawn to Stripe's mission of making it easy for businesses to sell online and am confident that my experience in creating user-friendly designs will be an asset to the team. I have experience in conducting user research, creating wireframes, and prototyping interactive designs, as well as working closely with engineers to ensure that my designs are implemented correctly.
+I am a strong collaborator and have experience working in cross-functional teams to bring new products and features to market. I'm confident that I can help improve Stripe's user experience and make it even more accessible to businesses.
+I would love the opportunity to speak with you further about my qualifications and how I can contribute to the Stripe team. Thank you for considering my application.`,
+	},
+	{
+		id: 2,
+		text: `Dear Stripe team,
+I am writing to express my interest in the product designer position at Stripe. With a strong background in user-centered design and a passion for creating intuitive digital experiences, I believe I would be a valuable addition to your team.
+I have experience working on a variety of design projects, from mobile apps to web platforms, and have a deep understanding of design principles and best practices. I am particularly excited about the opportunity to work on building out the design system for Stripe's platform, as I believe that a well-designed system can greatly enhance the user experience.
+In addition to my technical skills, I am a strong communicator and collaborator. I enjoy working closely with cross-functional teams to ensure that designs are not only visually appealing but also meet the needs of users and business goals.
+Thank you for considering my application. I look forward to the opportunity to discuss how my skills and experience can contribute to the success of Stripe.`,
+	},
+];
+
+export default function ListOfApplicationsPage() {
 	return (
-		<div className={styles.page}>
-			<main className={styles.main}>
-				<Image
-					className={styles.logo}
-					src="/next.svg"
-					alt="Next.js logo"
-					width={100}
-					height={20}
-					priority
-				/>
-				<div className={styles.intro}>
-					<h1>To get started, edit the page.tsx file.</h1>
-					<p>
-						Looking for a starting point or more instructions? Head over to{" "}
-						<a
-							href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Templates
-						</a>{" "}
-						or the{" "}
-						<a
-							href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Learning
-						</a>{" "}
-						center.
-					</p>
-				</div>
-				<div className={styles.ctas}>
-					<a
-						className={styles.primary}
-						href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<Image
-							className={styles.logo}
-							src="/vercel.svg"
-							alt="Vercel logomark"
-							width={16}
-							height={16}
-						/>
-						Deploy Now
-					</a>
-					<a
-						className={styles.secondary}
-						href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Documentation
-					</a>
-				</div>
-			</main>
-		</div>
+		<Page
+			title={<MHeading mode="h1">Applications</MHeading>}
+			actions={
+				<MLinkButton mode="primary" before={<PlusIcon />} href="/create">
+					Create New
+				</MLinkButton>
+			}
+		>
+			<ApplicationsList applications={applications} />
+			<ApplicationBanner />
+		</Page>
 	);
 }

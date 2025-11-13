@@ -33,4 +33,19 @@
 	--step-progress-label-color-success: var(--palette-semantic-success-600);
 	--step-progress-background-color-success: var(--palette-semantic-success-600);
 	--step-progress-color-success: var(--palette-semantic-success-100);
+
+	--step-progress-border-color-primary: transparent;
+	--step-progress-label-color-primary: var(--palette-primary-100);
+	--step-progress-background-color-primary: var(--palette-primary-600);
+	--step-progress-color-primary: var(--palette-primary-100);
+
+	--step-progress-border-color-secondary: transparent;
+	--step-progress-label-color-secondary: var(--palette-secondary-100);
+	--step-progress-background-color-secondary: var(--palette-secondary-600);
+	--step-progress-color-secondary: var(--palette-secondary-100);
+
+	--step-progress-border-color-tertiary: transparent;
+	--step-progress-label-color-tertiary: var(--palette-tertiary-100);
+	--step-progress-background-color-tertiary: var(--palette-tertiary-600);
+	--step-progress-color-tertiary: var(--palette-tertiary-100);
 }

@@ -1,5 +1,7 @@
 declare const styles: {
 	readonly counter: string;
+	readonly inside: string;
+	readonly outside: string;
 	readonly hasCounter: string;
 	readonly invalid: string;
 	readonly regular: string;

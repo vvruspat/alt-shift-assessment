@@ -23,8 +23,10 @@ type MExpandableTextProps = DetailedHTMLProps<
 	defaultExpanded?: boolean;
 	expandButtonContent?: ReactNode;
 	collapseButtonContent?: ReactNode;
-	customOverlayColor?: string;
+	customOverlayClass?: string;
 	showBlur?: boolean;
+	showExpandButton?: boolean;
+	showCollapseButton?: boolean;
 	buttonAlign?: "start" | "center" | "end";
 };
 
@@ -35,9 +37,11 @@ export const MExpandableText = ({
 	defaultExpanded = false,
 	expandButtonContent,
 	collapseButtonContent,
-	customOverlayColor,
+	customOverlayClass,
 	showBlur = false,
 	buttonAlign = "center",
+	showExpandButton = true,
+	showCollapseButton = true,
 	...restProps
 }: MExpandableTextProps) => {
 	const [isExpanded, setIsExpanded] = useState(defaultExpanded);
@@ -77,38 +81,40 @@ export const MExpandableText = ({
 				{!isExpanded && showBlur && (
 					<div
 						style={{
-							height: `${lineHeight}px`,
+							height: `${lineHeight * 2}px`,
 							transition: "opacity 0.3s ease-in-out",
 						}}
-						className={clsx(styles.blurOverlay, customOverlayColor, {
-							[styles.defaultOverlayColor]: !customOverlayColor,
+						className={clsx(styles.blurOverlay, customOverlayClass, {
+							[styles.defaultOverlayColor]: !customOverlayClass,
 						})}
 					/>
 				)}
 			</div>
-			{!isExpanded ? (
-				<MButton
-					size="m"
-					mode="transparent"
-					className={styles.button}
-					onClick={toggleExpand}
-				>
-					{expandButtonContent ?? (
-						<span className={styles.defaultButton}>Expand</span>
+			{!isExpanded
+				? showExpandButton && (
+						<MButton
+							size="m"
+							mode="transparent"
+							className={styles.button}
+							onClick={toggleExpand}
+						>
+							{expandButtonContent ?? (
+								<span className={styles.defaultButton}>Expand</span>
+							)}
+						</MButton>
+					)
+				: showCollapseButton && (
+						<MButton
+							size="m"
+							onClick={toggleExpand}
+							className={styles.button}
+							mode="transparent"
+						>
+							{collapseButtonContent ?? (
+								<span className={styles.defaultButton}>Collapse</span>
+							)}
+						</MButton>
 					)}
-				</MButton>
-			) : (
-				<MButton
-					size="m"
-					onClick={toggleExpand}
-					className={styles.button}
-					mode="transparent"
-				>
-					{collapseButtonContent ?? (
-						<span className={styles.defaultButton}>Collapse</span>
-					)}
-				</MButton>
-			)}
 		</MFlex>
 	);
 };

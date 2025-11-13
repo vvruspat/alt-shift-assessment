@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import localFont from "next/font/local";
+import "../uikit/styles/index.css";
+import { Header } from "@/components/Header";
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
+const fixelDisplay = localFont({
+	variable: "--font-family",
+	src: [
+		{
+			path: "../../public/fonts/FixelDisplay-Regular.woff2",
+			weight: "400",
+			style: "normal",
+		},
+	],
 });
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
+const fixelText = localFont({
+	variable: "--font-family-secondary",
+	src: [
+		{
+			path: "../../public/fonts/FixelText-Regular.woff2",
+			weight: "400",
+			style: "normal",
+		},
+	],
 });
 
 export const metadata: Metadata = {
@@ -23,8 +35,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body className={`${geistSans.variable} ${geistMono.variable}`}>
+		<html
+			lang="en"
+			data-theme="light"
+			data-platform="desktop"
+			data-brand="alt-shift"
+		>
+			<body className={`${fixelDisplay.variable} ${fixelText.variable}`}>
+				<Header />
 				{children}
 			</body>
 		</html>

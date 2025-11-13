@@ -1,4 +1,4 @@
 :root[data-theme="light"] {
-	--expandable-text-overlay-background: var(--palette-base-0);
-	--expandable-text-default-button-color: var(--palette-base-200);
+	--expandable-text-overlay-background: var(--background);
+	--expandable-text-default-button-color: var(--background);
 }

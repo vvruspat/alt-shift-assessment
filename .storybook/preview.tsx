@@ -1,6 +1,7 @@
 import type { Preview } from "@storybook/nextjs-vite";
 
 import "./preview.css";
+import "../src/uikit/styles/brand/fonts.css";
 import "../src/uikit/styles/index.css";
 
 import { withThemeByDataAttribute } from "@storybook/addon-themes";

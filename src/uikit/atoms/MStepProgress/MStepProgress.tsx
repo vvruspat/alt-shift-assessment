@@ -6,9 +6,18 @@ import "./MStepProgress.vars.css";
 import styles from "./MStepProgress.module.css";
 
 export type MStepProgressProps = ComponentProps<typeof MFlex> & {
-	mode?: "error" | "warning" | "success" | "info";
+	mode?:
+		| "error"
+		| "warning"
+		| "success"
+		| "info"
+		| "primary"
+		| "secondary"
+		| "tertiary";
 	steps?: number;
 	currentStep?: number;
+	bullets?: boolean;
+	bulletsSize?: "s" | "m" | "l";
 	showLabel?: boolean;
 	label?: string;
 };
@@ -19,6 +28,8 @@ export const MStepProgress = ({
 	currentStep = 0,
 	label,
 	showLabel = false,
+	bullets = false,
+	bulletsSize = "m",
 	className,
 	children,
 	...restProps
@@ -55,11 +66,13 @@ export const MStepProgress = ({
 			>
 				{Array.from({ length: steps }, (_, index) => (
 					<li
-						// biome-ignore lint/suspicious/noArrayIndexKey: index is the only unique identifier here
 						key={index}
 						aria-current={currentStep === index ? "step" : undefined}
 						className={clsx(
 							styles["step-progress-item"],
+							bullets && styles["step-progress-item--bullets"],
+							bullets &&
+								styles[`step-progress-item--bullets-size-${bulletsSize}`],
 							index < currentStep
 								? styles[`step-progress-mode-${mode}`]
 								: styles["step-progress-mode-pending"],

@@ -72,7 +72,6 @@ export const MDaySelector = ({
 						<MButton
 							type="button"
 							mode="transparent"
-							// biome-ignore lint/suspicious/noArrayIndexKey: index is the only unique identifier here
 							key={index}
 							disabled={!isCurrentMonth}
 							className={clsx(styles.day, {

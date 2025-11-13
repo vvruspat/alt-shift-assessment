@@ -43,8 +43,6 @@ export const MCheckbox = ({
 	};
 
 	return (
-		// biome-ignore lint/a11y/useKeyWithClickEvents: TODO: add keyboard support
-		// biome-ignore lint/a11y/useSemanticElements: no way to use semantic elements
 		<div
 			className={clsx(styles.checkboxWrapper, styles[status], wrapperClassName)}
 			onClick={onCheckboxClick}

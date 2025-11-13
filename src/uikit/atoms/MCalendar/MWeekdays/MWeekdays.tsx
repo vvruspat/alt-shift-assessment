@@ -33,7 +33,6 @@ export const MWeekdayList = ({
 	return (
 		<>
 			{weekdays.map((weekday, index) => (
-				// biome-ignore lint/suspicious/noArrayIndexKey: index is the only unique identifier here
 				<span key={index} className={styles.weekday}>
 					{weekday}
 				</span>

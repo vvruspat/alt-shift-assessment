@@ -1,0 +1,7 @@
+.applicationCard {
+	background: var(--background-secondary);
+}
+
+.expandableOverlay {
+	background: linear-gradient(transparent, var(--background-secondary));
+}
