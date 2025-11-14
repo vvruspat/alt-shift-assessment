@@ -28,7 +28,7 @@ export const MLabel = ({
 		>
 			<MFlex direction="row" gap="xs" align="start" justify="start">
 				{before}
-				<MText as="div" size="l">
+				<MText as="div" size="m" mode="secondary">
 					{children}
 				</MText>
 				{after}

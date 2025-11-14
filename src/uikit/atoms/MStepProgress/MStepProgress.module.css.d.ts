@@ -12,6 +12,7 @@ declare const styles: {
 	readonly "step-progress-label-mode-primary": string;
 	readonly "step-progress-label-mode-secondary": string;
 	readonly "step-progress-label-mode-tertiary": string;
+	readonly "step-progress-label-mode-black": string;
 	readonly "step-progress-list": string;
 	readonly "step-progress-mode-error": string;
 	readonly "step-progress-mode-info": string;
@@ -21,5 +22,6 @@ declare const styles: {
 	readonly "step-progress-mode-primary": string;
 	readonly "step-progress-mode-secondary": string;
 	readonly "step-progress-mode-tertiary": string;
+	readonly "step-progress-mode-black": string;
 };
 export = styles;

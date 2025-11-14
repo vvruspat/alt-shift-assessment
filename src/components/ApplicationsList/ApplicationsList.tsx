@@ -9,7 +9,7 @@ type ApplicationsListProps = {
 
 export const ApplicationsList = ({ applications }: ApplicationsListProps) => {
 	return (
-		<MGrid columnTemplate="1fr 1fr" columnGap="xl" rowGap="xl">
+		<MGrid columnTemplate="1fr 1fr" columnGap="xl" rowGap="2xl">
 			{applications.map((application) => (
 				<ApplicationCard
 					key={application.id}

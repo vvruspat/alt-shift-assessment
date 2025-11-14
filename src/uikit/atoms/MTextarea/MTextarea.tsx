@@ -19,6 +19,7 @@ import MLabel from "../MLabel/MLabel";
 import styles from "./MTextarea.module.css";
 import "./MTextarea.vars.css";
 import type { BasicInputProps } from "../../types/BasicInputProps";
+import { MText } from "../MText";
 
 type TextareaProps = ComponentProps<"textarea"> &
 	BasicInputProps & {
@@ -109,21 +110,25 @@ export const MTextarea = ({
 					{value}
 				</textarea>
 				{counter && counterPosition === "inside" && (
-					<span
+					<MText
+						mode="tertiary"
+						size="m"
 						ref={charCounter}
 						className={clsx(styles.counter, styles.inside)}
 					>
 						{count}/{maxLength}
-					</span>
+					</MText>
 				)}
 			</MFlex>
 			{counter && counterPosition === "outside" && (
-				<span
+				<MText
+					mode="tertiary"
+					size="m"
 					ref={charCounter}
 					className={clsx(styles.counter, styles.outside)}
 				>
 					{count}/{maxLength}
-				</span>
+				</MText>
 			)}
 			{description && (
 				<div className={clsx(descriptionClassName)}>

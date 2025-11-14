@@ -6,6 +6,7 @@ declare const styles: {
 	readonly buttonContentWrapper: string;
 	readonly disabled: string;
 	readonly l: string;
+	readonly xl: string;
 	readonly linkButton: string;
 	readonly m: string;
 	readonly noPadding: string;

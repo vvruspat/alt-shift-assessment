@@ -15,8 +15,13 @@
 	outline-offset: var(--focus-outline-offset);
 }
 
+.inputWrapper.regular .inputContainer:focus-within {
+	border: var(--focus-border);
+}
+
 .inputContainer {
 	transition: border 0.2s ease-in-out;
+	box-shadow: var(--input-regualr-shadow);
 }
 
 .inputContainer > div,
@@ -63,7 +68,7 @@
 	flex-grow: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	font-family: var(--font-family-secondary, Roboto);
+	font-family: var(--font-family);
 	font-size: var(--font-size-l, 16px);
 	font-style: normal;
 	font-weight: 400;

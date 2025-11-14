@@ -1,0 +1,16 @@
+.applicationBanner {
+	background-color: var(--background-green);
+	border: 0 none;
+	padding: var(--whiteSpace-general-7x) var(--whiteSpace-general-8x);
+	margin-top: var(--whiteSpace-general-4x);
+}
+
+.stepProgress {
+	width: 192px;
+}
+
+.description {
+	max-width: 480px;
+	text-align: center;
+	line-height: 28px;
+}

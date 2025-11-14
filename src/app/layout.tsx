@@ -2,23 +2,37 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../uikit/styles/index.css";
 import { Header } from "@/components/Header";
+import { MFlex } from "@/uikit";
+import styles from "./layout.module.css";
+import "./layout.css";
 
 const fixelDisplay = localFont({
-	variable: "--font-family",
+	variable: "--font-family-secondary",
 	src: [
 		{
 			path: "../../public/fonts/FixelDisplay-Regular.woff2",
 			weight: "400",
 			style: "normal",
 		},
+		{
+			path: "../../public/fonts/FixelDisplay-Semibold.woff2",
+			weight: "600",
+			style: "normal",
+		},
 	],
 });
+
 const fixelText = localFont({
-	variable: "--font-family-secondary",
+	variable: "--font-family",
 	src: [
 		{
 			path: "../../public/fonts/FixelText-Regular.woff2",
 			weight: "400",
+			style: "normal",
+		},
+		{
+			path: "../../public/fonts/FixelText-Semibold.woff2",
+			weight: "600",
 			style: "normal",
 		},
 	],
@@ -40,10 +54,18 @@ export default function RootLayout({
 			data-theme="light"
 			data-platform="desktop"
 			data-brand="alt-shift"
+			className={`${fixelDisplay.variable} ${fixelText.variable}`}
 		>
-			<body className={`${fixelDisplay.variable} ${fixelText.variable}`}>
-				<Header />
-				{children}
+			<body>
+				<MFlex
+					direction="column"
+					gap="4xl"
+					align="stretch"
+					className={styles.container}
+				>
+					<Header />
+					{children}
+				</MFlex>
 			</body>
 		</html>
 	);

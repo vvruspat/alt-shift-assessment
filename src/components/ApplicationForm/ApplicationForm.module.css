@@ -1,0 +1,10 @@
+form h1.heading {
+	font-size: var(--font-size-4xl);
+	line-height: var(--font-size-4_5xl);
+	letter-spacing: -0.72px;
+	margin-bottom: calc(-1 * var(--whiteSpace-general-_5x));
+}
+
+.headingDisabled {
+	color: var(--text-secondary);
+}

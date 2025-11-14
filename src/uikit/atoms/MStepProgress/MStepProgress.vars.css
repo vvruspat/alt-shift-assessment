@@ -8,8 +8,8 @@
 :root[data-theme="light"],
 :root[data-theme="dark"] {
 	--step-progress-border-color: var(--palette-primary-100);
-	--step-progress-label-color: var(--palette-primary-100);
-	--step-progress-background-color: var(--palette-primary-100);
+	--step-progress-label-color: var(--text-secondary);
+	--step-progress-background-color: var(--palette-base-100);
 	--step-progress-color: var(--palette-primary-100);
 
 	--step-progress-border-color-info: transparent;
@@ -48,4 +48,9 @@
 	--step-progress-label-color-tertiary: var(--palette-tertiary-100);
 	--step-progress-background-color-tertiary: var(--palette-tertiary-600);
 	--step-progress-color-tertiary: var(--palette-tertiary-100);
+
+	--step-progress-border-color-black: transparent;
+	--step-progress-label-color-black: var(--text-secondary);
+	--step-progress-background-color-black: var(--palette-base-800);
+	--step-progress-color-black: var(--text-secondary);
 }

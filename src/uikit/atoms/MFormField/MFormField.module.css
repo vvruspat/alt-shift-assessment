@@ -33,11 +33,21 @@
 		".     description";
 }
 
+.row.noDescription {
+	grid-template-areas: "label control";
+}
+
 .column {
 	grid-template-areas:
 		"label"
 		"control"
 		"description";
+}
+
+.column.noDescription {
+	grid-template-areas:
+		"label"
+		"control";
 }
 
 .label {

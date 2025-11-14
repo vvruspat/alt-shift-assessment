@@ -13,6 +13,6 @@ export type CommonButtonProps = {
 	before?: ReactNode;
 	stretch?: boolean;
 	justify?: "center" | "end" | "start" | "space-between";
-	size?: Extract<TComponentSize["size"], "l" | "m" | "s">;
+	size?: Extract<TComponentSize["size"], "xl" | "l" | "m" | "s">;
 	noPadding?: boolean;
 };

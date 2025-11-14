@@ -7,9 +7,12 @@
 
 :root[data-platform="desktop"] {
 	--input-field-whiteSpace-field-padding-horizontal: var(
-		--whiteSpace-general-1_5x
+		--whiteSpace-general-1x
 	);
-	--input-field-whiteSpace-field-padding-vertical: var(--whiteSpace-general-1x);
+	--input-field-whiteSpace-field-padding-vertical: calc(
+		var(--whiteSpace-general-1x) +
+		1px
+	);
 	--input-field-borderRadius-default: var(--borderRadius-general-2x);
 }
 

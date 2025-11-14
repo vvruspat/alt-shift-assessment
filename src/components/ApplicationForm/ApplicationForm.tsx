@@ -1,5 +1,7 @@
 "use client";
 
+import clsx from "clsx";
+import { type ChangeEvent, useMemo, useState } from "react";
 import {
 	MButton,
 	MDivider,
@@ -8,34 +10,85 @@ import {
 	MGrid,
 	MHeading,
 	MInput,
+	MText,
 	MTextarea,
 } from "@/uikit";
 import { ApplicationCard } from "../ApplicationCard";
 
+import styles from "./ApplicationForm.module.css";
+
 export const ApplicationForm = () => {
+	const [jobTitle, setJobTitle] = useState("");
+	const [company, setCompany] = useState("");
+	const [goodAt, setGoodAt] = useState("");
+	const [additionalInfo, setAdditionalInfo] = useState("");
+
+	const title = useMemo(() => {
+		if (jobTitle && company) {
+			return `${jobTitle}, ${company}`;
+		} else if (jobTitle) {
+			return jobTitle;
+		} else if (company) {
+			return company;
+		} else {
+			return "";
+		}
+	}, [jobTitle, company]);
+
+	const isDisabled = useMemo(() => {
+		return !(jobTitle && company && goodAt && additionalInfo);
+	}, [jobTitle, company, goodAt, additionalInfo]);
+
+	const onJobTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setJobTitle(e.target.value);
+	};
+	const onCompanyChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setCompany(e.target.value);
+	};
+	const onGoodAtChange = (e: ChangeEvent<HTMLInputElement>) => {
+		setGoodAt(e.target.value);
+	};
+	const onAdditionalInfoChange = (
+		e: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+	) => {
+		setAdditionalInfo(e.target.value);
+	};
+
 	return (
 		<MGrid columnTemplate="1fr 1fr" columnGap="xl" rowGap="xl">
 			<form>
 				<MFlex direction="column" gap="l" align="stretch">
-					<MHeading mode="h1">New application</MHeading>
+					<MHeading mode="h1" className={styles.heading}>
+						<MText mode={title ? "primary" : "secondary"} size="4xl">
+							{title ? title : "New application"}
+						</MText>
+					</MHeading>
 					<MDivider />
 
 					<MGrid columnTemplate="1fr 1fr" columnGap="xl" rowGap="xl">
 						<MFormField
 							control={
-								<MInput name="job_title" placeholder="Product manager" />
+								<MInput
+									name="job_title"
+									placeholder="Product manager"
+									onChange={onJobTitleChange}
+								/>
 							}
 							label="Job Title"
-							required
 							status="regular"
 							direction="column"
 							spacing="full"
 						/>
 
 						<MFormField
-							control={<MInput name="company" placeholder="Apple" />}
+							control={
+								<MInput
+									name="company"
+									placeholder="Apple"
+									onChange={onCompanyChange}
+								/>
+							}
 							label="Company"
-							required
 							status="regular"
 							direction="column"
 							spacing="full"
@@ -47,10 +100,10 @@ export const ApplicationForm = () => {
 							<MInput
 								name="good_at"
 								placeholder="HTML, CSS and doing things in time"
+								onChange={onGoodAtChange}
 							/>
 						}
 						label="I am good at..."
-						required
 						status="regular"
 						direction="column"
 						spacing="full"
@@ -64,16 +117,23 @@ export const ApplicationForm = () => {
 								counter={true}
 								maxLength={1200}
 								counterPosition="outside"
+								onChange={onAdditionalInfoChange}
+								rows={9}
 							/>
 						}
 						label="Additional details"
-						required
 						status="regular"
 						direction="column"
 						spacing="full"
 					/>
 
-					<MButton type="submit" mode="primary" size="l" stretch>
+					<MButton
+						type="submit"
+						mode="primary"
+						size="xl"
+						stretch
+						disabled={isDisabled}
+					>
 						Generate Now
 					</MButton>
 				</MFlex>

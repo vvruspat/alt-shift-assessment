@@ -43,6 +43,7 @@
 .step-progress-label {
 	color: var(--step-progress-color);
 	font-weight: 500;
+	font-size: var(--font-size-xl);
 }
 
 .step-progress-mode-info {
@@ -110,4 +111,13 @@
 }
 .step-progress-label-mode-tertiary {
 	color: var(--step-progress-label-color-tertiary);
+}
+
+.step-progress-mode-black {
+	border-color: var(--step-progress-border-color-black);
+	background-color: var(--step-progress-background-color-black);
+	color: var(--step-progress-color-black);
+}
+.step-progress-label-mode-black {
+	color: var(--step-progress-label-color-black);
 }

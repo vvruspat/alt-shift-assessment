@@ -1,6 +1,6 @@
 :root {
-	--card-padding-vertical: var(--whiteSpace-general-2x);
-	--card-padding-horizontal: var(--whiteSpace-general-2x);
+	--card-padding-vertical: var(--whiteSpace-general-3x);
+	--card-padding-horizontal: var(--whiteSpace-general-3x);
 }
 
 :root[data-theme="light"] {

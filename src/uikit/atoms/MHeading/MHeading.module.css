@@ -1,16 +1,19 @@
 .heading {
 	margin: 0;
-	font-family: var(--font-family);
+	font-family: var(--font-family-secondary);
+	letter-spacing: -0.96px;
 }
 
 h1.heading {
 	font-weight: 600;
-	font-size: var(--font-size-2xl);
+	font-size: var(--font-size-5xl);
+	line-height: var(--font-size-7xl);
 }
 
 h2.heading {
 	font-weight: 600;
-	font-size: var(--font-size-xl);
+	font-size: var(--font-size-4xl);
+	line-height: var(--font-size-5xl);
 }
 
 h3.heading {

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import type { ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { MFlex } from "../MFlex";
 import { MGrid } from "../MGrid";
 import "./MStepProgress.vars.css";
@@ -13,13 +13,14 @@ export type MStepProgressProps = ComponentProps<typeof MFlex> & {
 		| "info"
 		| "primary"
 		| "secondary"
-		| "tertiary";
+		| "tertiary"
+		| "black";
 	steps?: number;
 	currentStep?: number;
 	bullets?: boolean;
 	bulletsSize?: "s" | "m" | "l";
 	showLabel?: boolean;
-	label?: string;
+	label?: ReactNode;
 };
 
 export const MStepProgress = ({
@@ -30,7 +31,6 @@ export const MStepProgress = ({
 	showLabel = false,
 	bullets = false,
 	bulletsSize = "m",
-	className,
 	children,
 	...restProps
 }: MStepProgressProps) => {
@@ -42,6 +42,7 @@ export const MStepProgress = ({
 			direction="column"
 			justify="center"
 			align="stretch"
+			gap="l"
 			{...restProps}
 			role="progressbar"
 			aria-valuenow={currentStep}
@@ -63,6 +64,7 @@ export const MStepProgress = ({
 				columnTemplate={`repeat(${steps}, 1fr)`}
 				tag="ul"
 				className={styles["step-progress-list"]}
+				columnGap={bulletsSize === "s" ? "xs" : bulletsSize === "m" ? "s" : "m"}
 			>
 				{Array.from({ length: steps }, (_, index) => (
 					<li

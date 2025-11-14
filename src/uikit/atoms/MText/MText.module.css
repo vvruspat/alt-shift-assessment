@@ -3,35 +3,35 @@
 }
 
 .size-xs {
-	font-size: var(--typography-font-size-xs, 10px);
+	font-size: var(--font-size-xs, 10px);
 }
 
 .size-s {
-	font-size: var(--typography-font-size-s, 12px);
+	font-size: var(--font-size-s, 12px);
 }
 
 .size-m {
-	font-size: var(--typography-font-size-m, 14px);
+	font-size: var(--font-size-m, 14px);
 }
 
 .size-l {
-	font-size: var(--typography-font-size-l, 16px);
+	font-size: var(--font-size-l, 16px);
 }
 
 .size-xl {
-	font-size: var(--typography-font-size-xl, 18px);
+	font-size: var(--font-size-xl, 18px);
 }
 
 .size-2xl {
-	font-size: var(--typography-font-size-2xl, 20px);
+	font-size: var(--font-size-2xl, 20px);
 }
 
 .size-3xl {
-	font-size: var(--typography-font-size-3xl, 22px);
+	font-size: var(--font-size-3xl, 22px);
 }
 
 .size-4xl {
-	font-size: var(--typography-font-size-4xl, 24px);
+	font-size: var(--font-size-4xl, 24px);
 }
 
 .mode-primary {

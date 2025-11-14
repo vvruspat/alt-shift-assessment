@@ -19,6 +19,7 @@
 	transition-property: background, border, color;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
+	box-shadow: var(--input-regualr-shadow);
 }
 
 .textareaContainer.hasCounter {
@@ -57,7 +58,6 @@
 .counter {
 	text-align: right;
 	font-family: var(--font-family-secondary);
-	font-size: var(--textarea-counter-font-size, 12px);
 	font-style: normal;
 	font-weight: 400;
 	line-height: normal;
@@ -83,11 +83,13 @@
 	border: 1px solid var(--input-field-enabled-border-color, rgba(0, 0, 0, 0.12));
 }
 
-.textareaWrapper.regular .textarea::placeholder {
-	color: var(--input-field-enabled-placeholder, #babecb);
+.textareaWrapper.regular .textareaContainer:focus-within {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+	border: var(--focus-border);
 }
 
-.textareaWrapper.regular .counter {
+.textareaWrapper.regular .textarea::placeholder {
 	color: var(--input-field-enabled-placeholder, #babecb);
 }
 

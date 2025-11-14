@@ -1,15 +1,17 @@
 :root[data-brand="alt-shift"] {
-	/* typo */
 	--font-size-xs: 0.625rem;
 	--font-size-s: 0.75rem;
 	--font-size-m: 0.875rem;
 	--font-size-l: 1rem;
-	--font-size-xl: 1.25rem;
+	--font-size-xl: 1.125rem;
 	--font-size-2xl: 1.5rem;
+	--font-size-2_5xl: 1.75rem;
 	--font-size-3xl: 2rem;
-	--font-size-4xl: 2.5rem;
+	--font-size-4xl: 2.25rem;
+	--font-size-4_5xl: 2.75rem;
 	--font-size-5xl: 3rem;
-	--font-size-6xl: 3.75rem;
+	--font-size-6xl: 3.375rem;
+	--font-size-7xl: 3.75rem;
 
 	/* palette */
 	/* primary */
@@ -23,15 +25,40 @@
 		var(--palette-primary-800),
 		black 10%
 	);
-	--palette-primary-800: rgba(39, 44, 46, 1);
-	--palette-primary-700: rgba(56, 63, 65, 1);
-	--palette-primary-600: rgba(96, 101, 103, 1);
-	--palette-primary-500: rgba(136, 140, 141, 1);
-	--palette-primary-400: rgba(175, 178, 179, 1);
-	--palette-primary-300: rgba(215, 217, 217, 1);
-	--palette-primary-200: rgba(235, 236, 236, 1);
-	--palette-primary-100: rgba(245, 245, 246, 1);
-	--palette-primary-50: rgba(245, 245, 246, 1);
+	--palette-primary-800: #087443;
+	--palette-primary-700: color-mix(
+		in srgb,
+		var(--palette-primary-800),
+		white 10%
+	);
+	--palette-primary-600: color-mix(
+		in srgb,
+		var(--palette-primary-800),
+		white 20%
+	);
+	--palette-primary-500: color-mix(
+		in srgb,
+		var(--palette-primary-800),
+		white 30%
+	);
+	--palette-primary-400: color-mix(
+		in srgb,
+		var(--palette-primary-800),
+		white 40%
+	);
+	--palette-primary-300: rgba(115, 226, 163, 1);
+	--palette-primary-200: color-mix(
+		in srgb,
+		var(--palette-primary-800),
+		white 60%
+	);
+	--palette-primary-100: rgba(211, 248, 223, 1);
+	--palette-primary-50: rgba(237, 252, 242, 1);
+	--palette-primary-10: color-mix(
+		in srgb,
+		var(--palette-primary-800),
+		white 90%
+	);
 
 	/* secondary */
 	--palette-secondary-1000: color-mix(
@@ -64,7 +91,7 @@
 	--palette-secondary-300: rgba(163, 107, 115, 1);
 	--palette-secondary-200: rgba(194, 156, 162, 1);
 	--palette-secondary-100: rgba(224, 206, 208, 1);
-	--palette-secondary-50: rgba(240, 230, 232, 1);
+	--palette-secondary-50: rgba(242, 244, 247, 1);
 
 	--palette-tertiary-50: rgba(243, 238, 245, 1);
 	--palette-tertiary-100: color-mix(
@@ -227,18 +254,21 @@
 	/* ers-palette */
 	--palette-base-0: rgba(255, 255, 255, 1);
 	--palette-base-50: rgba(251, 251, 251, 1);
-	--palette-base-100: rgba(245, 245, 245, 1);
+	--palette-base-100: rgba(16, 24, 40, 0.24);
 	--palette-base-200: rgba(230, 231, 231, 1);
-	--palette-base-300: rgba(216, 217, 217, 1);
-	--palette-base-400: rgba(123, 132, 132, 1);
+	--palette-base-300: rgba(208, 213, 221, 1);
+	--palette-base-350: rgba(152, 162, 179, 1);
+	--palette-base-400: rgba(71, 84, 103, 1);
 	--palette-base-500: rgba(75, 79, 79, 1);
-	--palette-base-600: rgba(34, 38, 38, 1);
-	--palette-base-700: rgba(24, 28, 28, 1);
-	--palette-base-800: rgba(14, 18, 18, 1);
+	--palette-base-600: rgba(102, 112, 133, 1);
+	--palette-base-700: #181c1c;
+	--palette-base-800: rgba(16, 24, 40, 1);
 	--palette-base-900: rgba(0, 12, 11, 1);
 	--palette-base-1000: black;
 
-	--input-regular-border: rgba(0, 0, 0, 0.12);
+	--input-regular-border: var(--palette-base-300);
+	--input-regualr-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+
 	/* sizes */
 	--whiteSpace-general-_25x: 0.13rem;
 	--whiteSpace-general-_5x: 0.25rem;
@@ -250,6 +280,7 @@
 	--whiteSpace-general-3_5x: 1.75rem;
 	--whiteSpace-general-4x: 2rem;
 	--whiteSpace-general-6x: 3rem;
+	--whiteSpace-general-7x: 3.5rem;
 	--whiteSpace-general-8x: 4rem;
 	--whiteSpace-general-9x: 4.5rem;
 	--whiteSpace-general-12x: 6rem;
@@ -273,6 +304,7 @@
 	--size-general-_5x: 0.25rem;
 	--size-general-_75x: 0.375rem;
 	--size-general-1x: 0.5rem;
+	--size-general-1_25x: 0.625rem;
 	--size-general-1_5x: 0.75rem;
 	--size-general-2x: 1rem;
 	--size-general-2_5x: 1.25rem;
@@ -291,9 +323,11 @@
 	--button-padding-vertical-s: 0.375rem;
 	--button-padding-vertical-m: 0.5rem;
 	--button-padding-vertical-l: 0.625rem;
+	--button-padding-vertical-xl: 1rem;
 	--button-padding-horizontal-s: 0.75rem;
 	--button-padding-horizontal-m: 1rem;
-	--button-padding-horizontal-l: 1rem;
+	--button-padding-horizontal-l: 1.125rem;
+	--button-padding-horizontal-xl: 1.75rem;
 	--button-padding-tertiary-s: 0.25rem;
 	--button-padding-tertiary-m: 0.375rem;
 	--button-padding-tertiary-l: 0.5rem;

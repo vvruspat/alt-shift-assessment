@@ -114,6 +114,7 @@ export const MFormField = ({
 				styles.formField,
 				styles[platform === "mobile" ? mobileDirection : direction],
 				styles[`size-${platform === "mobile" ? mobileSpacing : spacing}`],
+				!description && styles.noDescription,
 			)}
 		>
 			{labelComponent && <div className={styles.label}>{labelComponent}</div>}

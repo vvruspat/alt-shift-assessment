@@ -1,6 +1,6 @@
 :root {
-	--button-font-size-default: var(--font-size-l);
-	--button-font-size-medium: var(--font-size-m);
+	--button-font-size-default: var(--font-size-xl);
+	--button-font-size-medium: var(--font-size-l);
 	--button-font-size-small: var(--font-size-s);
 	--button-font-size-xl: var(--font-size-xl);
 
@@ -11,7 +11,7 @@
 		--whiteSpace-general-1_5x
 	);
 	--button-primary-medium-whiteSpace-gap: var(--whiteSpace-general-1x);
-	--button-primary-medium-borderRadius: var(--borderRadius-general-4x);
+	--button-primary-medium-borderRadius: var(--borderRadius-general-1x);
 
 	--button-secondary-medium-whiteSpace-padding-horizontal: var(
 		--whiteSpace-general-2x
@@ -20,9 +20,9 @@
 		--whiteSpace-general-1_5x
 	);
 	--button-secondary-medium-whiteSpace-gap: var(--whiteSpace-general-1x);
-	--button-secondary-medium-borderRadius: var(--borderRadius-general-4x);
+	--button-secondary-medium-borderRadius: var(--borderRadius-general-1x);
 
-	--button-tertiary-medium-borderRadius: var(--borderRadius-general-4x);
+	--button-tertiary-medium-borderRadius: var(--borderRadius-general-1x);
 	--button-tertiary-medium-whiteSpace-gap: var(--whiteSpace-general-1x);
 
 	--button-round-size-default: var(--size-general-4x);
@@ -37,20 +37,20 @@
 	);
 	--button-outlined-medium-whiteSpace-gap: var(--whiteSpace-general-1x);
 
-	--button-transparent-medium-borderRadius: var(--borderRadius-general-4x);
+	--button-transparent-medium-borderRadius: var(--borderRadius-general-1x);
 	--button-transparent-medium-whiteSpace-gap: var(--whiteSpace-general-1x);
 }
 
 :root[data-theme="light"] {
 	/* button primary */
-	--button-primary-enabled-background-color: var(--palette-primary-700);
+	--button-primary-enabled-background-color: var(--palette-primary-800);
 	--button-primary-enabled-font-color: var(--palette-base-0);
-	--button-primary-hover-background-color: var(--palette-primary-600);
+	--button-primary-hover-background-color: var(--palette-primary-700);
 	--button-primary-hover-font-color: var(--palette-base-0);
-	--button-primary-active-background-color: var(--palette-primary-800);
+	--button-primary-active-background-color: var(--palette-primary-900);
 	--button-primary-active-font-color: var(--palette-base-0);
 	--button-primary-disabled-background-color: var(--palette-base-300);
-	--button-primary-disabled-font-color: var(--palette-base-400);
+	--button-primary-disabled-font-color: var(--palette-base-350);
 
 	/* button secondary */
 	--button-secondary-enabled-background-color: var(--palette-secondary-600);
@@ -105,10 +105,10 @@
 	--button-outlined-disabled-font-color: var(--palette-base-400);
 
 	/* button transparent */
-	--button-transparent-enabled-font-color: var(--palette-base-1000);
-	--button-transparent-hover-font-color: var(--palette-base-800);
-	--button-transparent-active-font-color: var(--palette-base-1000);
-	--button-transparent-disabled-font-color: var(--palette-base-500);
+	--button-transparent-enabled-font-color: var(--text-secondary);
+	--button-transparent-hover-font-color: var(--text-primary);
+	--button-transparent-active-font-color: var(--text-primary);
+	--button-transparent-disabled-font-color: var(--text-tertiary);
 }
 
 :root[data-theme="dark"] {

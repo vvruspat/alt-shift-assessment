@@ -1,7 +1,17 @@
 .applicationCard {
 	background: var(--background-secondary);
+	border: 0 none;
 }
 
 .expandableOverlay {
 	background: linear-gradient(transparent, var(--background-secondary));
+}
+
+.actionButton {
+	margin-bottom: calc(-1 * var(--button-padding-vertical-m));
+}
+
+.text {
+	white-space: pre-wrap;
+	line-height: var(--font-size-2_5xl);
 }

@@ -2,6 +2,7 @@ declare const styles: {
 	readonly column: string;
 	readonly control: string;
 	readonly description: string;
+	readonly noDescription: string;
 	readonly formField: string;
 	readonly label: string;
 	readonly row: string;

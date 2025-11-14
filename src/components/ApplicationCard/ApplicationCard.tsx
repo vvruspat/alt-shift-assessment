@@ -21,6 +21,8 @@ export const ApplicationCard = ({
 	return (
 		<MCard
 			className={styles.applicationCard}
+			shadow={false}
+			gap="xl"
 			footer={
 				<MFlex justify={onDelete ? "space-between" : "end"} gap="m">
 					{onDelete && (
@@ -28,12 +30,17 @@ export const ApplicationCard = ({
 							mode="transparent"
 							before={<DeleteIcon />}
 							onClick={() => onDelete(application.id)}
+							className={styles.actionButton}
 						>
-							Delete
+							<MText mode="secondary">Delete</MText>
 						</MButton>
 					)}
-					<MButton mode="transparent" after={<CopyIcon />}>
-						Copy to clipboard
+					<MButton
+						mode="transparent"
+						after={<CopyIcon />}
+						className={styles.actionButton}
+					>
+						<MText mode="secondary">Copy to clipboard</MText>
 					</MButton>
 				</MFlex>
 			}
@@ -41,16 +48,21 @@ export const ApplicationCard = ({
 			{expandable && (
 				<MExpandableText
 					showBlur
-					visibleLines={4}
+					visibleLines={5}
+					lineHeight={28}
 					showExpandButton={false}
 					showCollapseButton={false}
 					customOverlayClass={styles.expandableOverlay}
 				>
-					<MText style={{ whiteSpace: "pre-wrap" }}>{application.text}</MText>
+					<MText className={styles.text} mode="secondary" size="xl">
+						{application.text}
+					</MText>
 				</MExpandableText>
 			)}
 			{!expandable && (
-				<MText style={{ whiteSpace: "pre-wrap" }}>{application.text}</MText>
+				<MText className={styles.text} mode="secondary" size="xl">
+					{application.text}
+				</MText>
 			)}
 		</MCard>
 	);
