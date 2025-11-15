@@ -13,7 +13,6 @@ type Story = StoryObj<typeof MCaption>;
 export const Basic: Story = {
 	args: {
 		children: "Caption",
-		placeholder: "Placeholder",
 	},
 
 	argTypes: {

@@ -2,7 +2,7 @@
 
 import type { PropsWithChildren } from "react";
 import usePlatform from "../../hooks/usePlatform";
-import type { PlatformType } from "../../types";
+import type { PlatformType } from "../../types/PlatformTypes";
 
 type MPlatformProps = PropsWithChildren<{
 	platform?: PlatformType | "mobile-and-tablet" | "desktop-and-tablet";

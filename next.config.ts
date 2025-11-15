@@ -2,6 +2,10 @@ import path from "node:path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+	// Exclude Storybook files from the build
+	pageExtensions: ["tsx", "ts", "jsx", "js"].map((ext) => {
+		return ext;
+	}),
 	turbopack: {
 		root: path.join(__dirname, "."),
 		rules: {
@@ -12,6 +16,17 @@ const nextConfig: NextConfig = {
 		},
 	},
 	webpack(config, { webpack }) {
+		// Exclude Storybook files from the build
+		config.module.rules.push({
+			test: /\.(stories|story)\.(tsx?|jsx?)$/,
+			loader: "ignore-loader",
+		});
+
+		// Exclude .mdx files used by Storybook
+		config.module.rules.push({
+			test: /\.mdx$/,
+			loader: "ignore-loader",
+		});
 		// Webpack config for when turbopack is disabled
 		// Find the existing rule that handles SVG imports
 		// biome-ignore lint/suspicious/noExplicitAny: Webpack config types are complex

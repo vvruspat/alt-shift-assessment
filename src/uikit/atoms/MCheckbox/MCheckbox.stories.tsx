@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { ArgTypes, Meta, StoryObj } from "@storybook/react-vite";
 import MFlex from "../MFlex/MFlex";
 import { MIconBracketsSquare } from "../MIcon/icons/MIconBracketsSquare";
 import MText from "../MText/MText";
@@ -34,7 +34,7 @@ const errorComponentContent = () => (
 
 type Story = StoryObj<typeof MCheckbox>;
 
-const argTypes = {
+const argTypes: ArgTypes = {
 	status: {
 		control: {
 			type: "select",
