@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
 	pageExtensions: ["tsx", "ts", "jsx", "js"].map((ext) => {
 		return ext;
 	}),
+	reactCompiler: true,
 };
 
 export default nextConfig;
