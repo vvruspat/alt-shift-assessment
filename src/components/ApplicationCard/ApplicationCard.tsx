@@ -11,8 +11,8 @@ import {
 	MText,
 } from "@/uikit";
 import { copyToClipboard } from "@/utils/copyToClipboard";
-import { CopyIcon } from "../Icons/CopyIcon";
-import { DeleteIcon } from "../Icons/DeleteIcon";
+import { CopyIcon } from "../PageIcons/CopyIcon";
+import { DeleteIcon } from "../PageIcons/DeleteIcon";
 import { PendingBall } from "../PendingBall";
 import styles from "./ApplicationCard.module.css";
 

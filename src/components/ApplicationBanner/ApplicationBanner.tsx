@@ -9,7 +9,7 @@ import {
 	MText,
 } from "@/uikit";
 import { CreateNewApplicationButton } from "../CreateNewApplicationButton";
-import { PlusIcon } from "../Icons/PlusIcon";
+import { PlusIcon } from "../PageIcons/PlusIcon";
 import styles from "./ApplicationBanner.module.css";
 
 export const ApplicationBanner = () => {

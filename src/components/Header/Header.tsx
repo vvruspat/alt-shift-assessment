@@ -4,8 +4,8 @@ import { useEffect } from "react";
 import { APPLICATIONS_GOAL } from "@/constants/applicationsGoal";
 import { useApplicationsStore } from "@/store/useApplicationsStore";
 import { MFlex, MLinkButton, MStepProgress } from "@/uikit";
-import { HomeIcon } from "../Icons/HomeIcon";
 import { Logo } from "../Logo";
+import { HomeIcon } from "../PageIcons/HomeIcon";
 import styles from "./Header.module.css";
 
 export const Header = () => {
