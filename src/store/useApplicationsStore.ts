@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 import { addApplicationAction } from "@/actions/addApplicationAction";
 import { deleteApplicationAction } from "@/actions/deleteApplicationAction";
@@ -20,47 +21,55 @@ type Actions = {
 };
 
 export const useApplicationsStore = create<State & Actions>()(
-	immer((set) => ({
-		applications: {},
+	persist(
+		immer((set) => ({
+			applications: {},
 
-		fetchApplications: async () => {
-			const data = await getApplicationsAction();
+			fetchApplications: async () => {
+				const data = await getApplicationsAction();
 
-			set((state) => {
-				data.forEach((application) => {
+				set((state) => {
+					const apps: Record<string, Application> = {};
+					data.forEach((application) => {
+						apps[application.id] = application;
+					});
+
+					state.applications = apps;
+				});
+
+				return data;
+			},
+
+			addApplication: async (applicationText: Application["text"]) => {
+				const application = await addApplicationAction(applicationText);
+
+				set((state) => {
 					state.applications[application.id] = application;
 				});
-			});
 
-			return data;
+				return application;
+			},
+
+			removeApplication: async (applicationId: Application["id"]) => {
+				await deleteApplicationAction(applicationId);
+
+				set((state) => {
+					delete state.applications[applicationId];
+				});
+			},
+
+			updateApplication: async (application: Application) => {
+				const app = await updateApplicationAction(application);
+
+				set((state) => {
+					state.applications[application.id] = application;
+				});
+
+				return app;
+			},
+		})),
+		{
+			name: "applications-storage",
 		},
-
-		addApplication: async (applicationText: Application["text"]) => {
-			const application = await addApplicationAction(applicationText);
-
-			set((state) => {
-				state.applications[application.id] = application;
-			});
-
-			return application;
-		},
-
-		removeApplication: async (applicationId: Application["id"]) => {
-			await deleteApplicationAction(applicationId);
-
-			set((state) => {
-				delete state.applications[applicationId];
-			});
-		},
-
-		updateApplication: async (application: Application) => {
-			const app = await updateApplicationAction(application);
-
-			set((state) => {
-				state.applications[application.id] = application;
-			});
-
-			return app;
-		},
-	})),
+	),
 );

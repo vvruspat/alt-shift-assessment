@@ -2,15 +2,9 @@
 
 import { ComponentProps, useState } from "react";
 import { Application } from "@/types/application";
-import {
-	MButton,
-	MCard,
-	MExpandableText,
-	MFlex,
-	MIconCheck,
-	MText,
-} from "@/uikit";
+import { MButton, MCard, MExpandableText, MFlex, MText } from "@/uikit";
 import { copyToClipboard } from "@/utils/copyToClipboard";
+import { CheckIcon } from "../PageIcons/CheckIcon";
 import { CopyIcon } from "../PageIcons/CopyIcon";
 import { DeleteIcon } from "../PageIcons/DeleteIcon";
 import { PendingBall } from "../PendingBall";
@@ -18,6 +12,7 @@ import styles from "./ApplicationCard.module.css";
 
 type ApplicationCardProps = ComponentProps<typeof MCard> & {
 	application: Application;
+	placeholder?: string;
 	expandable?: boolean;
 	pending?: boolean;
 	onDelete?: (id: Application["id"]) => void;
@@ -27,6 +22,7 @@ export const ApplicationCard = ({
 	application,
 	expandable = true,
 	pending = false,
+	placeholder,
 	onDelete,
 }: ApplicationCardProps) => {
 	const [isCopied, setIsCopied] = useState(false);
@@ -70,24 +66,20 @@ export const ApplicationCard = ({
 								</MText>
 							</MButton>
 						)}
-						<MButton
-							mode="transparent"
-							after={
-								isCopied ? (
-									<MIconCheck mode="regular" width={20} height={20} />
+						{application.text && (
+							<MButton
+								mode="transparent"
+								after={isCopied ? <CheckIcon /> : <CopyIcon />}
+								className={styles.actionButton}
+								onClick={onCopyClick}
+							>
+								{isCopied ? (
+									<MText mode="secondary">Copied!</MText>
 								) : (
-									<CopyIcon />
-								)
-							}
-							className={styles.actionButton}
-							onClick={onCopyClick}
-						>
-							{isCopied ? (
-								<MText mode="secondary">Copied!</MText>
-							) : (
-								<MText mode="secondary">Copy to clipboard</MText>
-							)}
-						</MButton>
+									<MText mode="secondary">Copy to clipboard</MText>
+								)}
+							</MButton>
+						)}
 					</MFlex>
 				)
 			}
@@ -112,13 +104,13 @@ export const ApplicationCard = ({
 							customOverlayClass={styles.expandableOverlay}
 						>
 							<MText className={styles.text} mode="secondary" size="xl">
-								{application.text}
+								{application.text || placeholder}
 							</MText>
 						</MExpandableText>
 					)}
 					{!expandable && (
 						<MText className={styles.text} mode="secondary" size="xl">
-							{application.text}
+							{application.text || placeholder}
 						</MText>
 					)}
 				</>

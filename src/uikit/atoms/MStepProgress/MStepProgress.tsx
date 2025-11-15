@@ -21,6 +21,7 @@ export type MStepProgressProps = ComponentProps<typeof MFlex> & {
 	bulletsSize?: "s" | "m" | "l";
 	showLabel?: boolean;
 	label?: ReactNode;
+	doneIcon?: ReactNode;
 };
 
 export const MStepProgress = ({
@@ -31,6 +32,7 @@ export const MStepProgress = ({
 	showLabel = false,
 	bullets = false,
 	bulletsSize = "m",
+	doneIcon,
 	children,
 	...restProps
 }: MStepProgressProps) => {
@@ -60,28 +62,34 @@ export const MStepProgress = ({
 					{label || `Step ${currentStep} of ${steps}`}
 				</div>
 			)}
-			<MGrid
-				columnTemplate={`repeat(${steps}, 1fr)`}
-				tag="ul"
-				className={styles["step-progress-list"]}
-				columnGap={bulletsSize === "s" ? "xs" : bulletsSize === "m" ? "s" : "m"}
-			>
-				{Array.from({ length: steps }, (_, index) => (
-					<li
-						key={index}
-						aria-current={currentStep === index ? "step" : undefined}
-						className={clsx(
-							styles["step-progress-item"],
-							bullets && styles["step-progress-item--bullets"],
-							bullets &&
-								styles[`step-progress-item--bullets-size-${bulletsSize}`],
-							index < currentStep
-								? styles[`step-progress-mode-${mode}`]
-								: styles["step-progress-mode-pending"],
-						)}
-					/>
-				))}
-			</MGrid>
+			{doneIcon && currentStep >= steps ? (
+				doneIcon
+			) : (
+				<MGrid
+					columnTemplate={`repeat(${steps}, 1fr)`}
+					tag="ul"
+					className={styles["step-progress-list"]}
+					columnGap={
+						bulletsSize === "s" ? "xs" : bulletsSize === "m" ? "s" : "m"
+					}
+				>
+					{Array.from({ length: steps }, (_, index) => (
+						<li
+							key={index}
+							aria-current={currentStep === index ? "step" : undefined}
+							className={clsx(
+								styles["step-progress-item"],
+								bullets && styles["step-progress-item--bullets"],
+								bullets &&
+									styles[`step-progress-item--bullets-size-${bulletsSize}`],
+								index < currentStep
+									? styles[`step-progress-mode-${mode}`]
+									: styles["step-progress-mode-pending"],
+							)}
+						/>
+					))}
+				</MGrid>
+			)}
 		</MFlex>
 	);
 };

@@ -14,7 +14,6 @@ import {
 	selectTitle,
 	useCreateApplicationStore,
 } from "@/store/useCreateApplicationStore";
-import { Application } from "@/types/application";
 import {
 	MAlert,
 	MButton,
@@ -27,8 +26,10 @@ import {
 	MText,
 	MTextarea,
 } from "@/uikit";
+import { usePlatform } from "@/uikit/hooks";
 import { ApplicationCard } from "../ApplicationCard";
 import { FormSpinner } from "../FormSpinner";
+import { TryAgainIcon } from "../PageIcons/TryAgainIcon";
 import styles from "./ApplicationForm.module.css";
 
 export const ApplicationForm = () => {
@@ -41,6 +42,9 @@ export const ApplicationForm = () => {
 	const setCompany = useCreateApplicationStore((state) => state.setCompany);
 	const setGoodAt = useCreateApplicationStore((state) => state.setGoodAt);
 	const setLetter = useCreateApplicationStore((state) => state.setLetter);
+	const setCurrentApplication = useCreateApplicationStore(
+		(state) => state.setCurrentApplication,
+	);
 	const setAdditionalInfo = useCreateApplicationStore(
 		(state) => state.setAdditionalInfo,
 	);
@@ -48,14 +52,15 @@ export const ApplicationForm = () => {
 	const jobTitle = useCreateApplicationStore((state) => state.jobTitle);
 	const company = useCreateApplicationStore((state) => state.company);
 	const goodAt = useCreateApplicationStore((state) => state.goodAt);
+	const currentApplication = useCreateApplicationStore(
+		(state) => state.currentApplication,
+	);
 	const additionalInfo = useCreateApplicationStore(
 		(state) => state.additionalInfo,
 	);
 
 	const title = useCreateApplicationStore(selectTitle);
 	const isDisabled = useCreateApplicationStore(selectIsDisabled);
-
-	const [currentApplication, setCurrentApplication] = useState<Application>();
 
 	const [state, formAction, pending] = useActionState(
 		generateApplicationAction,
@@ -64,6 +69,8 @@ export const ApplicationForm = () => {
 			applicationText: letter,
 		},
 	);
+
+	const platform = usePlatform();
 
 	const onJobTitleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setJobTitle(e.target.value);
@@ -110,10 +117,15 @@ export const ApplicationForm = () => {
 		addApplication,
 		updateApplication,
 		setLetter,
+		setCurrentApplication,
 	]);
 
 	return (
-		<MGrid columnTemplate="1fr 1fr" columnGap="xl" rowGap="xl">
+		<MGrid
+			columnTemplate={platform === "desktop" ? "1fr 1fr" : "1fr"}
+			columnGap="xl"
+			rowGap="xl"
+		>
 			<form action={formAction}>
 				<MFlex direction="column" gap="l" align="stretch">
 					<MHeading mode="h1" className={styles.heading}>
@@ -193,11 +205,12 @@ export const ApplicationForm = () => {
 
 					<MButton
 						type="submit"
-						mode="primary"
+						mode={currentApplication ? "outlined" : "primary"}
 						size="xl"
 						stretch
 						disabled={isDisabled}
 						onClick={onSubmitClick}
+						before={currentApplication && !pending && <TryAgainIcon />}
 					>
 						{pending ? (
 							<FormSpinner />
@@ -214,10 +227,9 @@ export const ApplicationForm = () => {
 				pending={pending}
 				application={{
 					id: 0,
-					text: letter
-						? letter
-						: "Your personalized job application will appear here...",
+					text: letter,
 				}}
+				placeholder="Your personalized job application will appear here..."
 			/>
 		</MGrid>
 	);

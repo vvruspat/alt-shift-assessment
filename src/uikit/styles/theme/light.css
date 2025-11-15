@@ -8,6 +8,7 @@
 	--text-primary: var(--palette-base-800);
 	--text-secondary: var(--palette-base-600);
 	--text-tertiary: var(--palette-base-400);
+	--text-quaternary: var(--palette-base-550);
 	--background: var(--palette-base-0);
 	--background-secondary: var(--palette-secondary-50);
 	--background-tertiary: var(--palette-base-300);

@@ -93,10 +93,10 @@
 	/* button outlined */
 	--button-outlined-enabled-background-color: var(--palette-base-0);
 	--button-outlined-enabled-border-color: var(--palette-base-300);
-	--button-outlined-enabled-font-color: var(--palette-base-900);
+	--button-outlined-enabled-font-color: var(--text-quaternary);
 	--button-outlined-hover-background-color: var(--palette-base-100);
 	--button-outlined-hover-border-color: var(--palette-base-300);
-	--button-outlined-hover-font-color: var(--palette-base-1000);
+	--button-outlined-hover-font-color: var(--text-quaternary);
 	--button-outlined-active-background-color: var(--palette-base-0);
 	--button-outlined-active-border-color: var(--palette-base-300);
 	--button-outlined-active-font-color: var(--palette-base-800);

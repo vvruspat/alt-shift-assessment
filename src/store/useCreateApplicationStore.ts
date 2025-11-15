@@ -3,6 +3,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
+import { Application } from "@/types/application";
 
 type State = {
 	jobTitle: string;
@@ -10,6 +11,7 @@ type State = {
 	goodAt: string;
 	additionalInfo: string;
 	letter: string;
+	currentApplication?: Application;
 	pending: boolean;
 };
 
@@ -19,6 +21,7 @@ type Actions = {
 	setGoodAt: (goodAt: string) => void;
 	setAdditionalInfo: (additionalInfo: string) => void;
 	setLetter: (letter: string) => void;
+	setCurrentApplication: (application: Application) => void;
 	reset: () => void;
 };
 
@@ -29,6 +32,7 @@ const initialState: State = {
 	additionalInfo: "",
 	letter: "",
 	pending: false,
+	currentApplication: undefined,
 };
 
 export const useCreateApplicationStore = create<State & Actions>()(
@@ -59,6 +63,11 @@ export const useCreateApplicationStore = create<State & Actions>()(
 			setLetter: (letter: string) =>
 				set((state) => {
 					state.letter = letter;
+				}),
+
+			setCurrentApplication: (application: Application) =>
+				set((state) => {
+					state.currentApplication = application;
 				}),
 
 			reset: () => set(initialState),
