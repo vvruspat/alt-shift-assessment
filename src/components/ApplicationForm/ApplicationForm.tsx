@@ -1,12 +1,6 @@
 "use client";
 
-import {
-	type ChangeEvent,
-	FormEvent,
-	useActionState,
-	useEffect,
-	useState,
-} from "react";
+import { type ChangeEvent, FormEvent, useActionState, useEffect } from "react";
 import { generateApplicationAction } from "@/actions/generateApplicationAction";
 import { useApplicationsStore } from "@/store/useApplicationsStore";
 import {
