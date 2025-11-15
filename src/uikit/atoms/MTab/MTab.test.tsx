@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { describe, expect, test, vi } from "vitest";
 import MTab from "./MTab";
 
 describe("MTab Component", () => {
@@ -12,12 +13,12 @@ describe("MTab Component", () => {
 	test("applies the active class when active prop is true", () => {
 		const label = "Active Tab";
 		const { container } = render(<MTab label={label} active key={""} />);
-		expect(container.querySelector("button")).toHaveClass("activeTab");
+		expect(container.querySelector("button")).toHaveClass(/activeTab/);
 	});
 
 	test("calls onClick prop when clicked", () => {
 		const label = "Clickable Tab";
-		const onClickMock = jest.fn();
+		const onClickMock = vi.fn();
 		render(<MTab label={label} onClick={onClickMock} key={""} />);
 		fireEvent.click(screen.getByText(label));
 		expect(onClickMock).toHaveBeenCalled();

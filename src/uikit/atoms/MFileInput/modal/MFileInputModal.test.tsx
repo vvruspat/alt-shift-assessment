@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { describe, expect, it, vi } from "vitest";
 import { MFileInputModal } from "./MFileInputModal";
 
 describe("MFileInputModal", () => {
@@ -7,10 +8,10 @@ describe("MFileInputModal", () => {
 		new File(["1"], "one.txt", { type: "text/plain" }),
 		new File(["2"], "two.png", { type: "image/png" }),
 	];
-	const onDropped = jest.fn();
-	const onRemoved = jest.fn();
-	const onReset = jest.fn();
-	const onClose = jest.fn();
+	const onDropped = vi.fn();
+	const onRemoved = vi.fn();
+	const onReset = vi.fn();
+	const onClose = vi.fn();
 	const fakeRef = { current: document.createElement("input") };
 	fakeRef.current.type = "file";
 	fakeRef.current.accept = "text/plain,image/png";
@@ -28,8 +29,8 @@ describe("MFileInputModal", () => {
 				inputRef={fakeRef}
 			/>,
 		);
-		const overlay = container.querySelector(".overlay");
-		expect(overlay).not.toHaveClass("open");
+		const overlay = container.querySelector('[class*="overlay"]');
+		expect(overlay).not.toHaveClass(/open/);
 	});
 
 	it("shows files and calls onFileRemoved", () => {

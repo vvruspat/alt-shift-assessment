@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { describe, expect, test } from "vitest";
 import MCard from "./MCard";
 
 describe("MCard", () => {

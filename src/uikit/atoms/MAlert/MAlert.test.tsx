@@ -8,8 +8,8 @@ describe("MAlert", () => {
 		render(<MAlert>This is an alert</MAlert>);
 		const alert = screen.getByText("This is an alert");
 		expect(alert).toBeInTheDocument();
-		expect(alert).toHaveClass("alert");
-		expect(alert).toHaveClass("alert-mode-info");
+		expect(alert.className).toMatch(/alert/);
+		expect(alert.className).toMatch(/alert-mode-info/);
 	});
 
 	it.each([["info"], ["success"], ["warning"], ["error"]])(
@@ -23,7 +23,7 @@ describe("MAlert", () => {
 				</MAlert>,
 			);
 			const alert = screen.getByText("Alert content");
-			expect(alert).toHaveClass(`alert-mode-${mode}`);
+			expect(alert.className).toMatch(new RegExp(`alert-mode-${mode}`));
 		},
 	);
 
@@ -31,7 +31,7 @@ describe("MAlert", () => {
 		render(<MAlert className="custom-class">Alert with extra class</MAlert>);
 		const alert = screen.getByText("Alert with extra class");
 		expect(alert).toHaveClass("custom-class");
-		expect(alert).toHaveClass("alert");
+		expect(alert.className).toMatch(/alert/);
 	});
 
 	it("passes additional props to MFlex (e.g., id)", () => {

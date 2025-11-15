@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { describe, expect, it } from "vitest";
 import MFileInput from "./MFileInput";
 
 class DataTransferMock {
@@ -43,7 +44,7 @@ describe("MFileInput", () => {
 		const btn = screen.getByRole("button", { name: /upload/i });
 		fireEvent.click(btn);
 
-		const overlay = container.querySelector(".overlay");
-		expect(overlay).toHaveClass("open");
+		const overlay = container.querySelector('[class*="overlay"]');
+		expect(overlay).toHaveClass(/open/);
 	});
 });

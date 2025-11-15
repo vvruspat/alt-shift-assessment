@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { describe, expect, test, vi } from "vitest";
 import MInput from "./MInput";
 
 describe("MInput", () => {
@@ -45,7 +46,7 @@ describe("MInput", () => {
 	});
 
 	test("triggers onChange event on value change", async () => {
-		const handleChange = jest.fn();
+		const handleChange = vi.fn();
 		render(<MInput onChange={handleChange} />);
 
 		const inputElement = screen.getByRole("textbox");

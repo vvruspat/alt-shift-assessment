@@ -1,20 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { afterEach, describe, expect, it, Mock, vi } from "vitest";
 import { MPlatform } from "./MPlatform";
 
 // Mock usePlatform
-jest.mock("../../hooks/usePlatform", () => ({
+vi.mock("../../hooks/usePlatform", () => ({
 	__esModule: true,
-	default: jest.fn(),
+	default: vi.fn(),
 }));
 
 import usePlatform from "../../hooks/usePlatform";
 
-const mockedUsePlatform = usePlatform as jest.Mock;
+const mockedUsePlatform = usePlatform as Mock;
 
 describe("MPlatform", () => {
 	afterEach(() => {
-		jest.clearAllMocks();
+		vi.clearAllMocks();
 	});
 
 	const Child = () => <div>Platform Specific Content</div>;

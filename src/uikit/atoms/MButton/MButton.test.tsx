@@ -1,11 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
+import { describe, expect, test, vi } from "vitest";
 import MButton from "./MButton";
 
 describe("MButton", () => {
 	test("render button", async () => {
-		const handleClick = jest.fn();
+		const handleClick = vi.fn();
 
 		render(
 			<MButton mode="primary" onClick={handleClick}>
@@ -20,7 +21,7 @@ describe("MButton", () => {
 	});
 
 	test("disabled button", async () => {
-		const handleClick = jest.fn();
+		const handleClick = vi.fn();
 
 		render(
 			<MButton disabled={true} mode="primary" onClick={handleClick}>

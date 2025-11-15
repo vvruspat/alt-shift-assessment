@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { describe, expect, test, vi } from "vitest";
 import MTabs from "./MTabs";
 
 interface MTabProps {
@@ -8,16 +9,18 @@ interface MTabProps {
 	onClick: () => void;
 }
 
-jest.mock("../MTab/MTab", () => ({ label, active, onClick }: MTabProps) => (
-	<button
-		type="button"
-		data-testid="tab"
-		className={active ? "active" : ""}
-		onClick={onClick}
-	>
-		{label}
-	</button>
-));
+vi.mock("../MTab/MTab", () => ({
+	default: ({ label, active, onClick }: MTabProps) => (
+		<button
+			type="button"
+			data-testid="tab"
+			className={active ? "active" : ""}
+			onClick={onClick}
+		>
+			{label}
+		</button>
+	),
+}));
 
 describe("MTabs Component", () => {
 	const items = [
