@@ -15,7 +15,7 @@ const fixelDisplay = localFont({
 			style: "normal",
 		},
 		{
-			path: "../../public/fonts/FixelDisplay-Semibold.woff2",
+			path: "../../public/fonts/FixelDisplay-SemiBold.woff2",
 			weight: "600",
 			style: "normal",
 		},
@@ -31,7 +31,7 @@ const fixelText = localFont({
 			style: "normal",
 		},
 		{
-			path: "../../public/fonts/FixelText-Semibold.woff2",
+			path: "../../public/fonts/FixelText-SemiBold.woff2",
 			weight: "600",
 			style: "normal",
 		},
