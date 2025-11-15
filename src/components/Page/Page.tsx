@@ -3,7 +3,7 @@ import { MDivider, MFlex } from "@/uikit";
 import styles from "./Page.module.css";
 
 type PageProps = ComponentProps<"main"> & {
-	title?: ReactNode;
+	header?: ReactNode;
 	actions?: ReactNode;
 };
 

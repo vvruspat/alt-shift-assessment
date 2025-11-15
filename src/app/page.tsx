@@ -48,7 +48,7 @@ Thank you for considering my application. I look forward to the opportunity to d
 export default function ListOfApplicationsPage() {
 	return (
 		<Page
-			title={<MHeading mode="h1">Applications</MHeading>}
+			header={<MHeading mode="h1">Applications</MHeading>}
 			actions={
 				<MLinkButton
 					mode="primary"
