@@ -1,3 +1,5 @@
+import { APPLICATIONS_GOAL } from "@/constants/applicationsGoal";
+import { useApplicationsStore } from "@/store/useApplicationsStore";
 import {
 	MCard,
 	MFlex,
@@ -6,10 +8,15 @@ import {
 	MStepProgress,
 	MText,
 } from "@/uikit";
-import { PlusIcon } from "../icons/PlusIcon";
+import { CreateNewApplicationButton } from "../CreateNewApplicationButton";
+import { PlusIcon } from "../Icons/PlusIcon";
 import styles from "./ApplicationBanner.module.css";
 
 export const ApplicationBanner = () => {
+	const applicationsNumber = useApplicationsStore(
+		(state) => Object.keys(state.applications).length,
+	);
+
 	return (
 		<MCard
 			align="center"
@@ -24,23 +31,25 @@ export const ApplicationBanner = () => {
 						Generate and send out couple more job applications today to get
 						hired faster
 					</MText>
-					<MLinkButton
+					<CreateNewApplicationButton
 						mode="primary"
 						size="xl"
 						before={<PlusIcon width={24} height={24} />}
 						href="/create"
-					>
-						Create new
-					</MLinkButton>
+					/>
 				</MFlex>
 				<MStepProgress
 					mode="black"
-					steps={5}
-					currentStep={2}
+					steps={APPLICATIONS_GOAL}
+					currentStep={applicationsNumber}
 					showLabel={true}
 					direction="column-reverse"
 					className={styles.stepProgress}
-					label={<center>2 out of 5</center>}
+					label={
+						<center>
+							{applicationsNumber} out of {APPLICATIONS_GOAL}
+						</center>
+					}
 				/>
 			</MFlex>
 		</MCard>

@@ -7,14 +7,19 @@ type PageProps = ComponentProps<"main"> & {
 	actions?: ReactNode;
 };
 
-export const Page = ({ title, actions, children, ...mainProps }: PageProps) => {
+export const Page = ({
+	header,
+	actions,
+	children,
+	...mainProps
+}: PageProps) => {
 	return (
 		<main {...mainProps}>
 			<MFlex direction="column" justify="start" align="stretch" gap="l">
-				{(title || actions) && (
+				{(header || actions) && (
 					<>
 						<MFlex justify="space-between" align="center">
-							{title}
+							{header}
 							{actions}
 						</MFlex>
 						<MDivider className={styles.headerDivider} />

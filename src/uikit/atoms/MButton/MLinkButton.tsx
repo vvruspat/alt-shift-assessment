@@ -4,7 +4,7 @@ import { MFlex } from "../../atoms/MFlex";
 import styles from "./MButton.module.css";
 import type { CommonButtonProps } from "./types";
 
-type LinkButtonProps = ComponentProps<"a"> &
+export type LinkButtonProps = ComponentProps<"a"> &
 	CommonButtonProps & {
 		disabled?: boolean;
 	};

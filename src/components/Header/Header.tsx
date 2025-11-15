@@ -1,17 +1,34 @@
+"use client";
+
+import { useEffect } from "react";
+import { APPLICATIONS_GOAL } from "@/constants/applicationsGoal";
+import { useApplicationsStore } from "@/store/useApplicationsStore";
 import { MFlex, MLinkButton, MStepProgress } from "@/uikit";
-import { HomeIcon } from "../icons/HomeIcon";
+import { HomeIcon } from "../Icons/HomeIcon";
 import { Logo } from "../Logo";
 import styles from "./Header.module.css";
 
 export const Header = () => {
+	const applicationsNumber = useApplicationsStore(
+		(state) => Object.keys(state.applications).length,
+	);
+
+	const fetchApplications = useApplicationsStore(
+		(state) => state.fetchApplications,
+	);
+
+	useEffect(() => {
+		fetchApplications();
+	});
+
 	return (
 		<header className={styles.header}>
 			<MFlex justify="space-between">
 				<Logo />
 				<MFlex justify="end" gap="2xl">
 					<MStepProgress
-						steps={5}
-						currentStep={2}
+						steps={APPLICATIONS_GOAL}
+						currentStep={applicationsNumber}
 						showLabel={true}
 						direction="row"
 						mode="black"
@@ -19,7 +36,7 @@ export const Header = () => {
 						justify="center"
 						align="center"
 						bulletsSize="s"
-						label="3/5 applications generated"
+						label={`${applicationsNumber}/${APPLICATIONS_GOAL} applications generated`}
 					/>
 					<MLinkButton mode="outlined" href="/" className={styles.homeButton}>
 						<HomeIcon />
