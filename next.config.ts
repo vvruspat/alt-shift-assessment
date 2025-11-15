@@ -6,15 +6,6 @@ const nextConfig: NextConfig = {
 	pageExtensions: ["tsx", "ts", "jsx", "js"].map((ext) => {
 		return ext;
 	}),
-	turbopack: {
-		root: path.join(__dirname, "."),
-		rules: {
-			"*.svg": {
-				loaders: ["@svgr/webpack"],
-				as: "*.js",
-			},
-		},
-	},
 	webpack(config, { webpack }) {
 		// Exclude Storybook files from the build
 		config.module.rules.push({
