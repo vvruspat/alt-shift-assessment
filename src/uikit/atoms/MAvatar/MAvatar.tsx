@@ -33,6 +33,7 @@ export const MAvatar = ({
 					<MAvatarFallback name={imgProps.alt ?? ""} />
 				</div>
 			) : (
+				// biome-ignore lint/a11y/useAltText: alt text is passed via props
 				<img
 					{...imgProps}
 					className={clsx(styles.image, className)}
