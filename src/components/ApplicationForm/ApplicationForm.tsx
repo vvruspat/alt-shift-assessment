@@ -118,14 +118,18 @@ export const ApplicationForm = () => {
 
 	return (
 		<MGrid
-			columnTemplate={platform === "desktop" ? "1fr 1fr" : "1fr"}
+			columnTemplate={platform === "desktop" ? "50% 1fr" : "1fr"}
 			columnGap="xl"
 			rowGap="xl"
 		>
 			<form action={formAction}>
 				<MFlex direction="column" gap="l" align="stretch">
 					<MHeading mode="h1" className={styles.heading}>
-						<MText mode={title ? "primary" : "secondary"} size="4xl">
+						<MText
+							mode={title ? "primary" : "secondary"}
+							size="4xl"
+							className={styles.headingText}
+						>
 							{title ? title : "New application"}
 						</MText>
 					</MHeading>

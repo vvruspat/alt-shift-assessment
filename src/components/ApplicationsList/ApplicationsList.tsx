@@ -1,6 +1,7 @@
 "use client";
 import { Application } from "@/types/application";
 import { MGrid } from "@/uikit";
+import { usePlatform } from "@/uikit/hooks";
 import { ApplicationCard } from "../ApplicationCard";
 
 type ApplicationsListProps = {
@@ -12,8 +13,14 @@ export const ApplicationsList = ({
 	applications,
 	onDelete,
 }: ApplicationsListProps) => {
+	const platform = usePlatform();
+
 	return (
-		<MGrid columnTemplate="1fr 1fr" columnGap="xl" rowGap="2xl">
+		<MGrid
+			columnTemplate={platform === "desktop" ? "1fr 1fr" : "1fr"}
+			columnGap="xl"
+			rowGap="2xl"
+		>
 			{applications.map((application) => (
 				<ApplicationCard
 					key={application.id}
