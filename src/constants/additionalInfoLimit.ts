@@ -1,0 +1,1 @@
+export const ADDITIONAL_INFO_LIMIT = 1200;

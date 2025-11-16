@@ -34,6 +34,7 @@ type TextareaProps = ComponentProps<"textarea"> &
 		headerClassName?: string;
 		textareaClassName?: string;
 		descriptionClassName?: string;
+		shouldLimitInput?: boolean;
 		counterPosition?: "inside" | "outside";
 	};
 
@@ -49,9 +50,11 @@ export const MTextarea = ({
 	headerClassName,
 	textareaClassName,
 	descriptionClassName,
+	shouldLimitInput = true,
 	maxLength = 200,
 	counterPosition = "inside",
 	value,
+	defaultValue,
 	id,
 	rows = 3,
 	...restProps
@@ -71,6 +74,10 @@ export const MTextarea = ({
 	useEffect(() => {
 		updateCount();
 	}, [updateCount]);
+
+	useEffect(() => {
+		setCount(value?.toString().length ?? 0);
+	}, [value]);
 
 	return (
 		<MFlex
@@ -104,11 +111,11 @@ export const MTextarea = ({
 					id={textareaId}
 					rows={rows}
 					className={clsx(styles.textarea, textareaClassName)}
-					maxLength={maxLength}
+					maxLength={shouldLimitInput ? maxLength : undefined}
+					defaultValue={defaultValue}
+					value={value}
 					{...restProps}
-				>
-					{value}
-				</textarea>
+				/>
 				{counter && counterPosition === "inside" && (
 					<MText
 						mode="tertiary"
