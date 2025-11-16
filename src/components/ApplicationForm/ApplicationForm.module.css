@@ -3,8 +3,17 @@ form h1.heading {
 	line-height: var(--font-size-4_5xl);
 	letter-spacing: -0.72px;
 	margin-bottom: calc(-1 * var(--whiteSpace-general-_5x));
+	max-width: 100%;
 }
 
 .headingDisabled {
 	color: var(--text-secondary);
+}
+
+.headingText {
+	display: block;
+	max-width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 }
