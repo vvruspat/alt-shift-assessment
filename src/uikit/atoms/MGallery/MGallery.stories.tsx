@@ -24,11 +24,31 @@ const footer = (
 export const Basic: Story = {
 	args: {
 		slides: [
-			<img src="https://picsum.photos/400?random=1" key="1" />,
-			<img src="https://picsum.photos/400?random=2" key="2" />,
-			<img src="https://picsum.photos/400?random=3" key="3" />,
-			<img src="https://picsum.photos/400?random=4" key="4" />,
-			<img src="https://picsum.photos/400?random=5" key="5" />,
+			<img
+				src="https://picsum.photos/400?random=1"
+				key="1"
+				alt="random image 1"
+			/>,
+			<img
+				src="https://picsum.photos/400?random=2"
+				key="2"
+				alt="random image 2"
+			/>,
+			<img
+				src="https://picsum.photos/400?random=3"
+				key="3"
+				alt="random image 3"
+			/>,
+			<img
+				src="https://picsum.photos/400?random=4"
+				key="4"
+				alt="random image 4"
+			/>,
+			<img
+				src="https://picsum.photos/400?random=5"
+				key="5"
+				alt="random image 5"
+			/>,
 			<MButton key="6">Click me</MButton>,
 		],
 		header: ["Foo ", "Bar ", "Baz "],
