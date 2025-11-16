@@ -14,7 +14,7 @@ export const Page = ({
 	...mainProps
 }: PageProps) => {
 	return (
-		<main {...mainProps}>
+		<main {...mainProps} className={styles.page}>
 			<MFlex direction="column" justify="start" align="stretch" gap="l">
 				{(header || actions) && (
 					<>
