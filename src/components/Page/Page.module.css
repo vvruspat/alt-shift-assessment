@@ -1,3 +1,7 @@
 .headerDivider {
 	margin-bottom: var(--whiteSpace-general-1x);
 }
+
+.page {
+	max-width: 100%;
+}

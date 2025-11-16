@@ -121,6 +121,7 @@ export const ApplicationForm = () => {
 			columnTemplate={platform === "desktop" ? "50% 1fr" : "1fr"}
 			columnGap="xl"
 			rowGap="xl"
+			className={styles.formGrid}
 		>
 			<form action={formAction}>
 				<MFlex direction="column" gap="l" align="stretch">

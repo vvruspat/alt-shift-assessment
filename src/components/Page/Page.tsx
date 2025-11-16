@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { ComponentProps, ReactNode } from "react";
 import { MDivider, MFlex } from "@/uikit";
 import styles from "./Page.module.css";
@@ -11,10 +12,11 @@ export const Page = ({
 	header,
 	actions,
 	children,
+	className,
 	...mainProps
 }: PageProps) => {
 	return (
-		<main {...mainProps}>
+		<main {...mainProps} className={clsx(styles.page, className)}>
 			<MFlex direction="column" justify="start" align="stretch" gap="l">
 				{(header || actions) && (
 					<>
