@@ -2,6 +2,7 @@
 
 import { type ChangeEvent, FormEvent, useActionState, useEffect } from "react";
 import { generateApplicationAction } from "@/actions/generateApplicationAction";
+import { ADDITIONAL_INFO_LIMIT } from "@/constants/additionalInfoLimit";
 import { useApplicationsStore } from "@/store/useApplicationsStore";
 import {
 	selectIsDisabled,
@@ -55,6 +56,7 @@ export const ApplicationForm = () => {
 
 	const title = useCreateApplicationStore(selectTitle);
 	const isDisabled = useCreateApplicationStore(selectIsDisabled);
+	const errors = useCreateApplicationStore((state) => state.errors);
 
 	const [state, formAction, pending] = useActionState(
 		generateApplicationAction,
@@ -184,15 +186,16 @@ export const ApplicationForm = () => {
 								name="additional_info"
 								placeholder="Describe why you are a great fit or paste your bio"
 								counter={true}
-								maxLength={1200}
-								defaultValue={additionalInfo}
+								maxLength={ADDITIONAL_INFO_LIMIT}
+								value={additionalInfo}
+								shouldLimitInput={false}
 								counterPosition="outside"
 								onChange={onAdditionalInfoChange}
 								rows={9}
 							/>
 						}
 						label="Additional details"
-						status="regular"
+						status={errors?.additionalInfo ? "invalid" : "regular"}
 						direction="column"
 						spacing="full"
 					/>

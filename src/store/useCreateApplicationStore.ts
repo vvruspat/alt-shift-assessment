@@ -3,6 +3,7 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
+import { ADDITIONAL_INFO_LIMIT } from "@/constants/additionalInfoLimit";
 import { Application } from "@/types/application";
 
 type State = {
@@ -13,6 +14,7 @@ type State = {
 	letter: string;
 	currentApplication?: Application;
 	pending: boolean;
+	errors?: Record<string, string>;
 };
 
 type Actions = {
@@ -33,6 +35,7 @@ const initialState: State = {
 	letter: "",
 	pending: false,
 	currentApplication: undefined,
+	errors: undefined,
 };
 
 export const useCreateApplicationStore = create<State & Actions>()(
@@ -55,10 +58,29 @@ export const useCreateApplicationStore = create<State & Actions>()(
 					state.goodAt = goodAt;
 				}),
 
-			setAdditionalInfo: (additionalInfo: string) =>
+			setAdditionalInfo: (additionalInfo: string) => {
 				set((state) => {
 					state.additionalInfo = additionalInfo;
-				}),
+				});
+
+				if (additionalInfo.length > ADDITIONAL_INFO_LIMIT) {
+					set((state) => {
+						if (!state.errors) {
+							state.errors = {};
+						}
+						state.errors.additionalInfo = `Additional information cannot exceed ${ADDITIONAL_INFO_LIMIT} characters.`;
+					});
+				} else {
+					set((state) => {
+						if (state.errors) {
+							delete state.errors.additionalInfo;
+							if (Object.keys(state.errors).length === 0) {
+								state.errors = undefined;
+							}
+						}
+					});
+				}
+			},
 
 			setLetter: (letter: string) =>
 				set((state) => {
@@ -91,4 +113,10 @@ export const selectTitle = (state: State) => {
 };
 
 export const selectIsDisabled = (state: State) =>
-	!(state.jobTitle && state.company && state.goodAt && state.additionalInfo);
+	!(
+		state.jobTitle &&
+		state.company &&
+		state.goodAt &&
+		state.additionalInfo &&
+		Object.keys(state.errors ?? {}).length === 0
+	);

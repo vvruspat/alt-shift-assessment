@@ -102,6 +102,9 @@
 
 .textareaWrapper.invalid .textareaContainer {
 	border: 1px solid var(--input-field-invalid-border-color, #dc2020);
+	outline: var(--focus-outline);
+	outline-color: var(--input-field-invalid-outline-color);
+	outline-offset: var(--focus-outline-offset);
 }
 
 .textareaWrapper.invalid .textarea,
@@ -119,7 +122,7 @@
 }
 
 .textareaWrapper.invalid .counter {
-	color: var(--input-field-invalid-border-color, #dc2020);
+	color: var(--input-field-invalid-assistive-font-color);
 }
 
 /* disabled */

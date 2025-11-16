@@ -219,17 +219,9 @@
 		white 10%
 	);
 	--palette-semantic-error-300: rgba(218, 33, 33, 1);
-	--palette-semantic-error-400: rgba(191, 0, 13, 1);
-	--palette-semantic-error-500: color-mix(
-		in srgb,
-		var(--palette-semantic-error-400),
-		black 10%
-	);
-	--palette-semantic-error-600: color-mix(
-		in srgb,
-		var(--palette-semantic-error-400),
-		black 20%
-	);
+	--palette-semantic-error-400: #fee4e2;
+	--palette-semantic-error-500: rgba(240, 68, 56, 1);
+	--palette-semantic-error-600: rgba(253, 162, 155, 1);
 	--palette-semantic-error-700: color-mix(
 		in srgb,
 		var(--palette-semantic-error-400),

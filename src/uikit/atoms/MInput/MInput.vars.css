@@ -7,7 +7,7 @@
 
 :root[data-platform="desktop"] {
 	--input-field-whiteSpace-field-padding-horizontal: var(
-		--whiteSpace-general-1x
+		--whiteSpace-general-2x
 	);
 	--input-field-whiteSpace-field-padding-vertical: calc(
 		var(--whiteSpace-general-1x) +
@@ -79,7 +79,8 @@
 	--input-field-invalid-border-color: var(--palette-semantic-error-600);
 	--input-field-invalid-background-color: var(--palette-base-0);
 	--input-field-invalid-label-font-color: var(--palette-base-1000);
-	--input-field-invalid-assistive-font-color: var(--palette-semantic-error-600);
+	--input-field-invalid-assistive-font-color: var(--palette-semantic-error-500);
+	--input-field-invalid-outline-color: var(--palette-semantic-error-400);
 	/* input disabled */
 	--input-field-disabled-font-color: var(--palette-base-300);
 	--input-field-disabled-border-color: var(--input-regular-border);
