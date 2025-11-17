@@ -138,7 +138,11 @@ export const ApplicationForm = () => {
 
 					{state.error && <MAlert mode="error">{state.error}</MAlert>}
 
-					<MGrid columnTemplate="1fr 1fr" columnGap="xl" rowGap="xl">
+					<MGrid
+						columnTemplate={platform === "desktop" ? "50% 1fr" : "1fr"}
+						columnGap="xl"
+						rowGap="xl"
+					>
 						<MFormField
 							control={
 								<MInput
